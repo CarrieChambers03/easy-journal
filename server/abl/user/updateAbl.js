@@ -16,7 +16,7 @@ const schema = {
         id: { type: "string" },
         email: { type: "string", format: "email" },
         password: { type: "string", format: "password" },
-        role: { type: "string" }, //REPLACE WITH THE ROLE JOURNALER
+        role: { type: "string" },
         journalEntryList: { type: "array", items: { type: "string" } }
     },
     required: ["id"],
@@ -38,6 +38,18 @@ function updateAbl(req, res){
             });
             return;
         };
+
+        if(user.email){
+            const userList = userDao.list();
+            const emailExists = userList.find(u => u.email === user.email);
+            if(emailExists){
+                res.status(400).json({
+                    code: "emailAlreadyExists",
+                    message: `User with email ${user.email} already exists`,
+                });
+                return;
+            };
+        }
 
         //get the current user data
         let idQuery = {
