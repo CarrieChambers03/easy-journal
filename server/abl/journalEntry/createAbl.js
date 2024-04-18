@@ -41,12 +41,19 @@ async function createAbl(req, res) {
             return;
         };
 
+        //getting the user
+        const user = getUserById({query: {id: req.user}},res);
+        if(!user){
+            res.status(404).json({
+                code: "userNotFound",
+                message: "user not found",
+            });
+            return;
+        };
+
         //creating the entry
         entry.userID = req.user;
         entry = journalEntryDao.create(entry);
-
-        //getting the user
-        const user = getUserById({query: {id: req.user}},res);
         user.journalEntryList.push(entry.id);
 
         //updating the user with the new journal entry
