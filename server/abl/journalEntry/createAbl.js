@@ -22,7 +22,6 @@ const schema = {
 async function createAbl(req, res) {
     try {
         let entry = req.body;
-
         //validate input
         const valid = ajv.validate(schema, entry);
         if(!valid){
@@ -33,6 +32,7 @@ async function createAbl(req, res) {
             });
             return;
         };
+
         if(entry.textInput === "" && entry.activityList.length === 0 && entry.moodID === ""){
             res.status(400).json({
                 code: "emptyJournalEntry",
@@ -42,7 +42,7 @@ async function createAbl(req, res) {
         };
 
         //getting the user
-        const user = getUserById({query: {id: req.user}},res);
+        const user = await getUserById({params: {id: req.user}},res);
         if(!user){
             res.status(404).json({
                 code: "userNotFound",
@@ -57,7 +57,7 @@ async function createAbl(req, res) {
         user.journalEntryList.push(entry.id);
 
         //updating the user with the new journal entry
-        updateUser({body: {id: user.id, journalEntryList: user.journalEntryList}}, res);
+        await updateUser({body: {id: user.id, journalEntryList: user.journalEntryList}}, res);
 
         res.json({
             entry: entry,

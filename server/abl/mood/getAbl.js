@@ -14,7 +14,7 @@ const schema = {
 
 function getAbl(req, res){
     try {
-        const valid = ajv.validate(schema, req.body);
+        const valid = ajv.validate(schema, req.params);
         if (!valid) {
             res.status(400).json({
                 code: "dtoInIsNotValid",
@@ -23,12 +23,11 @@ function getAbl(req, res){
             });
             return;
         }
-
-        const mood = moodDao.getById(req.body.id);
+        const mood = moodDao.getById(req.params.id);
         if(!mood){
             res.status(404).json({
                 code: "moodNotFound",
-                message: `mood ${req.body.id} not found`,
+                message: `mood ${req.params.id} not found`,
             });
             return;
         }

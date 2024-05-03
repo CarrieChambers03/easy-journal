@@ -13,7 +13,7 @@ const schema = {
         id: { type: "string" },
         textInput: { type: "string" },
         date: { type: "string", format: "date-time" },
-        moodId: { type: "string" },
+        moodID: { type: "string" },
         activityList: { type: "array", items: { type: "string" } }
     },
     required: ["id"],

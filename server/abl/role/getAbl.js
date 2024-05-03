@@ -14,7 +14,7 @@ const schema = {
 
 function getAbl(req, res){
     try {
-        const valid = ajv.validate(schema, req.body);
+        const valid = ajv.validate(schema, req.params);
         if (!valid) {
             res.status(400).json({
                 code: "dtoInIsNotValid",
@@ -24,11 +24,11 @@ function getAbl(req, res){
             return;
         }
 
-        const role = roleDao.getById(req.body.id);
+        const role = roleDao.getById(req.params.id);
         if(!role){
             res.status(404).json({
                 code: "roleNotFound",
-                message: `role ${req.body.id} not found`,
+                message: `role ${req.params.id} not found`,
             });
             return;
         }

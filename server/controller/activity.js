@@ -11,7 +11,7 @@ router.post("/create", (req, res) => {
     createAbl(req, res);
 });
 
-router.get("/get", (req, res) => {
+router.get("/get/:id", (req, res) => {
     getAbl(req, res);
 });
 

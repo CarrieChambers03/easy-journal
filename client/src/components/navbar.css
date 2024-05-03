@@ -1,0 +1,10 @@
+.navbar {
+    background-color: transparent;
+    padding: 10px 0;
+}
+
+.navbar svg {
+    color: #4C298A;
+    margin-right: 5px;
+    margin-left: 5px;
+}

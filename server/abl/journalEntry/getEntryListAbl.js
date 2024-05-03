@@ -27,7 +27,7 @@ function getEntryListAbl(req, res){
         };
 
         //getting the array of entry ids
-        const user = getUserById({query: {id: userId}}, res);
+        const user = getUserById({params: {id: userId}}, res);
         if(!user){
             res.status(404).json({
                 code: "userNotFound",

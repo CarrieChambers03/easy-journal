@@ -1,0 +1,77 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://assets-global.website-files.com/5a9ee6416e90d20001b20038/64c21faa4f2a2f5ac63df849_-23.png');
+    background-position: bottom;
+    gap: 20px;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* UPPER HALF */
+
+.dashboard .top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dashboard .top .journal-entries {
+    width: 50vw;
+}
+
+.dashboard .top .react-calendar {
+    margin: 0 auto;
+    border: 5px solid #38156F;
+    border-bottom: 5px solid #603D97;
+    border-right: 5px solid #603D97;
+}
+
+
+
+/* LOWER HALF */
+
+.dashboard .switch-button {
+    display: inline-block;
+    width: 10%;
+    margin-left: auto;
+    margin-right: 40px;
+    background: linear-gradient(to right, #A93226, #1E8449);
+    color: white;
+    font-weight: bold;
+    border-left: 2px solid #A93226;
+    border-top: 2px solid #A93226;
+    border-right: 2px solid #1E8449;
+    border-bottom: 2px solid #1E8449;
+    box-shadow: 0 0 0 1px #38156F;
+}
+.dashboard .switch-button:active {
+    transform: translateY(2px);
+}
+
+.dashboard .graphs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dashboard .graphs .mood-graph, .dashboard .graphs .activity-graph {
+    border: 5px solid #38156F;
+    border-bottom: 5px solid #603D97;
+    border-right: 5px solid #603D97;
+}
+
+.dashboard .graphs .mood-graph {
+    align-self: flex-start;
+    margin-left: 40px;
+    width: 40vw;
+    background-color: white;
+}
+
+.dashboard .graphs .activity-graph {
+    align-self: flex-start;
+    margin-right: 40px;
+    width: 40vw;
+    background-color: white;
+}

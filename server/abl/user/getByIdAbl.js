@@ -12,7 +12,7 @@ const schema = {
 
 function getByIdAbl (req, res) {
     try {
-        const id = req.query.id;
+        const id = req.params.id;
 
         //validate input
         const valid = ajv.validate(schema, id);

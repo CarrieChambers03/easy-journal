@@ -52,12 +52,12 @@ function updateAbl(req, res){
         }
 
         //get the current user data
-        let idQuery = {
-            query: {
+        let idParam = {
+            params: {
                 id: user.id,
             }
         }
-        const existingData = getByIdAbl(idQuery, res);
+        const existingData = getByIdAbl(idParam, res);
         if (!existingData){
             res.status(404).json({
                 code: "userNotFound",

@@ -27,7 +27,7 @@ function handleRefreshToken (req, res){
                 process.env.ACCESS_TOKEN_SECRET,
                 { expiresIn: "5m" }
             );
-            res.json({ accessToken });
+            res.status(200).cookie("access", accessToken, { httpOnly: true, secure: true, sameSite: "None", maxAge: 5 * 60 * 1000 });
         }
     );
 }

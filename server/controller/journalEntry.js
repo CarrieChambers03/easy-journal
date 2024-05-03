@@ -31,11 +31,11 @@ router.get("/myList", (req, res) => {
     }
 });
 
-router.get("/getByDate", (req, res) => {
+router.post("/getByDate", (req, res) => {   //needs to be post because can receive an array
     getByDateAbl(req, res);
 });
 
-router.get("/getByText", (req, res) => {
+router.post("/getByText", (req, res) => {   //needs to be post so that it can receive special characters
     getByTextAbl(req, res);
 });
 

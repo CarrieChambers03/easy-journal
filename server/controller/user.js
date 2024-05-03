@@ -24,7 +24,7 @@ router.get("/refresh", (req, res) => {
     refreshTokenAbl(req, res);
 })
 
-router.get("/getById", (req, res) => {
+router.get("/getById/:id", (req, res) => {
     try {
         const user = getByIdAbl(req, res);
         res.json(user);

@@ -14,7 +14,7 @@ const schema = {
 
 function getAbl(req, res){
     try {
-        const valid = ajv.validate(schema, req.body);
+        const valid = ajv.validate(schema, req.params);
         if (!valid) {
             res.status(400).json({
                 code: "dtoInIsNotValid",
@@ -24,11 +24,11 @@ function getAbl(req, res){
             return;
         }
 
-        const activity = activityDao.getById(req.body.id);
+        const activity = activityDao.getById(req.params.id);
         if(!activity){
             res.status(404).json({
                 code: "activityNotFound",
-                message: `activity ${req.body.id} not found`,
+                message: `activity ${req.params.id} not found`,
             });
             return;
         }

@@ -62,7 +62,8 @@ async function loginAbl(req, res){
                 { expiresIn: "1d" }
             );
 
-            res.cookie('jwt', refreshToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000});
+            res.cookie('jwt', refreshToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000});
+            res.cookie('access', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 5 * 60 * 1000});
             userDao.login(user.id, refreshToken);
             res.json({ accessToken });
         } else {
