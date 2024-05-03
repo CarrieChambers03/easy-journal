@@ -7,7 +7,15 @@ export default function RefreshToken(){
 
     useEffect(() => {
         async function refresh(){
-            console.log('called function')
+            const authRes = await fetch('http://localhost:8000/authenticate', {
+                method: 'GET',
+                credentials: 'include'
+            });
+            const auth = await authRes.json();
+            if(!auth.auth){
+                navigate('/login');
+                return;
+            }
             const response = await fetch('http://localhost:8000/user/refresh', {
                 method: 'GET',
                 credentials: 'include'
@@ -19,12 +27,11 @@ export default function RefreshToken(){
                 navigate('/login');
                 return;
             } else {
-                console.log('Token refreshed');
+                return;
             }
         }
 
         function handleClick() {
-            console.log('click');
             if(location.pathname === '/login' || location.pathname === '/register'){
                 return;
             }
