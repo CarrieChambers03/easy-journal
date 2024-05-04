@@ -101,6 +101,9 @@ export default function ActivityGraph({type}){
                     <YAxis dataKey="count" allowDecimals={false} stroke='#38156F' />
                 </BarChart>
             </ResponsiveContainer>
+            {activityData.length === 0 && <div className='empty-graph'>
+                <p>Save a journal entry that has a {moodType} mood and some activity chosen to see its graph.</p>
+                </div>}
         </div>
     )
 }

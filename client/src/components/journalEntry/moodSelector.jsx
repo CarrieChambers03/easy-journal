@@ -64,7 +64,7 @@ export default function MoodSelector({ mood, onMoodChange }){
     }, [selectedMood]);
 
     return(
-        <div>
+        <div className='mood-selector'>
             {Object.keys(moods).map(mood => {
                 return(
                     <img

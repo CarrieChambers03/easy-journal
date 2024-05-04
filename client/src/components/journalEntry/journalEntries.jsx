@@ -62,7 +62,7 @@ export default function JournalEntries({list, searchTerm}){
         if(searchTerm){
             setSearch(searchTerm);
         }
-    }, [list]);
+    }, [list, searchTerm]);
 
     useEffect(() => {
         entries.forEach(entry => {
@@ -85,7 +85,7 @@ export default function JournalEntries({list, searchTerm}){
                 setTexts(prevTexts => ({...prevTexts, [entry.id]: text}));
             }
         });
-    }, [entries]);
+    }, [entries, search, searchTerm]);
 
     const onEntryClick = useOnEntryClick();
 
@@ -95,13 +95,13 @@ export default function JournalEntries({list, searchTerm}){
                 const moodName = (entry.moodID === "") ? "none" : moods[entry.id];
                return ( <div key = {entry.id} className = "entryBlock" onClick={() => onEntryClick(entry.id)}>
                     <img src={moodIcons[moodName]} alt={moodName} />
-                    <div className="textDetails">
+                    <div className="text-details">
                         <p className='date'>{new Date(entry.date).toLocaleDateString()}</p>
                         <div className="activities">
                             {activities[entry.id]?.length > 0 ? (activities[entry.id].slice(0, 3).map((activity, index) => { return <span key={index} className="activity-label">{activity.name}</span>;})) : null }
                         </div>
                         {searchTerm &&
-                            <p>{texts[entry.id]}</p>
+                            <p className='text'>{texts[entry.id]}</p>
                         }
                     </div>
                 </div>);

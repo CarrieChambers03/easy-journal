@@ -5,6 +5,8 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import EntryEditor from '../../components/journalEntry/journalEntryEditor.jsx';
 
+import './createEntry.css';
+
 export default function CreateEntry(){
     const [message, setMessage] = useState('');
     const [showMessage, setShowMessage] = useState(false);
@@ -60,14 +62,16 @@ export default function CreateEntry(){
     }
 
     return (
-        <div>
+        <div className='create-entry'>
             {
                 showMessage && (
                     <div>
                         {message}
                         <button onClick={() => {
                             setShowMessage(false);
-                            navigate('/dashboard');
+                            if(message.includes('saved')){
+                                navigate('/dashboard');
+                            }
                             }}>
                             <FontAwesomeIcon icon={faXmark} />
                         </button>

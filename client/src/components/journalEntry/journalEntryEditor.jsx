@@ -4,6 +4,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import ActivityList from './activityList.jsx';
 import MoodSelector from './moodSelector.jsx';
 
+import './journalEntryEditor.css';
+
 export default function EntryEditor ({ initialData, onSubmit, onCancel }) {
     const [data, setData] = useState(initialData);
     const [showActivities, setShowActivities] = useState(false);
@@ -16,6 +18,9 @@ export default function EntryEditor ({ initialData, onSubmit, onCancel }) {
         setData(
             {...initialData, date: new Date(initialData.date).toISOString()}
         );
+        if(initialData.activityList.length > 0){
+            setShowActivities(true);
+        }
     }, [initialData]);
 
     function handleChange(e){
@@ -68,44 +73,54 @@ export default function EntryEditor ({ initialData, onSubmit, onCancel }) {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form className='entry-editor' onSubmit={handleSubmit}>
+            <div className='date'>
+                <label htmlFor="date">Date:</label>            
+                <DatePicker
+                    selected={date}
+                    onChange={handleDateChange} />
+            </div>
             <MoodSelector mood={mood} onMoodChange={handleMoodChange} />
 
-            <label htmlFor='textInput'>text:</label>
-            <input
-                type="text"
-                id="textInput"
-                name="textInput"
-                value={data.textInput}
-                onChange={handleChange}
-            />
+            <div className='input-fields'>
+                <div className='activity-input'>
+                    <label htmlFor='activities'>Activities: </label>
+                    <div className="activity-list" onClick={() => setShowActivities(true)}>
+                        <div>{activityObjects.map(a => {
+                            return (
+                                <span key={a.id}>
+                                    {a.name}
+                                </span>
+                            );
+                        })}
+                        </div>
+                    </div>
+                </div>
 
-            <div className="activityList" onClick={() => setShowActivities(true)}>
-                Activities: 
-                <div>{activityObjects.map(a => {
-                    return (
-                        <span key={a.id}>
-                            {a.name}
-                        </span>
-                    );
-                })}
+                <div className='text-input'>
+                    <label htmlFor='textInput'>Text:</label>
+                    <textarea
+                        name="textInput"
+                        defaultValue={data.textInput}
+                        autoComplete='off'
+                        onChange={handleChange}
+                    />
                 </div>
             </div>
+
             {showActivities && (
-                <ActivityList
-                    inputActivities={activities}
-                    onClose={handleActivityListClose}
-                 />
-            )
-            }
+                <div className='activity-list-overlay'>
+                    <ActivityList
+                        inputActivities={activities}
+                        onClose={handleActivityListClose}
+                    />
+                </div>
+            )}
 
-            <label htmlFor="date">Date:</label>
-            <DatePicker
-                selected={date}
-                onChange={handleDateChange} />
-
-            <button type="submit">Save</button>
-            <button type="button" onClick={handleCancel}>Cancel</button>
+            <div className='buttons'>
+                <button className='save-button' type="submit">Save</button>
+                <button className='cancel-button' type="button" onClick={handleCancel}>Cancel</button>
+            </div>
         </form>
     )
 }

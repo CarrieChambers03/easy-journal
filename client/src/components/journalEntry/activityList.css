@@ -1,3 +1,57 @@
-.selected {
-    background-color: gray;
+.activity-list-comp {
+    position: relative;
+    padding: 50px;
+    width: max-content;
+    height: max-content;
+    background-color: #4C298A;
+    border: 5px solid #603D87;
+    border-right: 5px solid #381576;
+    border-bottom: 5px solid #381576;
+}
+
+.activity-list-comp .activity-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    max-height: 80vh;
+    background-color: white;
+    padding: 10px;
+    border: 5px solid #EBEBEB;
+}
+
+.activity-list-comp .selected,
+.activity-list-comp .inactive {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+}
+
+.activity-list-comp .inactive {
+    background-color: #C092D7;
+}
+.activity-list-comp .inactive:hover,
+.activity-list-comp .selected:hover {
+    background-color: #6A3D9E;
+    color: white;
+}
+
+.activity-list-comp .selected {
+    background-color: #4C298A;
+    color: white;
+}
+
+.activity-list-comp button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #C092D7;
+    border: 0;
+    padding: 5px 10px;
+    font-size: large;
+    margin-bottom: 5px;
 }

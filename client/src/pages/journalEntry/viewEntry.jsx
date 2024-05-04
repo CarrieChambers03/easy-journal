@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import Navbar from '../../components/navbar.jsx';
 
+import './viewEntry.css';
+
 import great from '../../assets/great-full.png';
 import good from '../../assets/good-full.png';
 import meh from '../../assets/meh-full.png';
@@ -79,7 +81,7 @@ export default function ViewEntry(){
                 console.error("an internal error occurred");
             }
         });
-    }, []);
+    }, [entryID]);
 
     function handleEdit(){
         navigate(`/journalEntry/edit/${entryID}`, {state: {entryID: entryID}});
@@ -105,16 +107,28 @@ export default function ViewEntry(){
     }
 
     return(
-        <div>
+        <div className='view-entry'>
             <Navbar />
-            <h1>{new Date(entry.date).toLocaleDateString()}</h1>
-            <img src={moodIcons[mood]} alt={mood} />
-            {activities.map((activity, index) => {
-                return <span key={index}>{activity}</span>
-            })}
-            <p>{entry.textInput}</p>
-            <button type="button" onClick={handleEdit}>Edit</button>
-            <button type="button" onClick={handleDelete}>Delete</button>
+            <div className='box'>
+                <div className='date-and-mood'>
+                    <h1>{new Date(entry.date).toLocaleDateString()}</h1>
+                    <img src={moodIcons[mood]} alt={mood} />
+                </div>
+                <div className='activities-and-text'>
+                    <div className='activities'>
+                        {activities.map((activity, index) => {
+                            return <span key={index}>{activity}</span>
+                        })}
+                    </div>
+                    <div className='text'>
+                        <p>{entry.textInput}</p>
+                    </div>
+                </div>
+                <div className='buttons'>
+                    <button className='edit' type="button" onClick={handleEdit}>Edit</button>
+                    <button className='delete' type="button" onClick={handleDelete}>Delete</button>
+                </div>
+            </div>
         </div>
     )
 }

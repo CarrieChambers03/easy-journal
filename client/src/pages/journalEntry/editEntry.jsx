@@ -5,6 +5,8 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import EntryEditor from '../../components/journalEntry/journalEntryEditor.jsx';
 
+import './editEntry.css';
+
 async function getEntry(entryID){
     const entryData = await fetch(`http://localhost:8000/journalEntry/getById?id=${entryID}`, {
         method: 'GET',
@@ -35,7 +37,7 @@ export default function EditEntry(){
                 }, 3000);
             }
         })
-    }, []);
+    }, [entryID, navigate]);
 
     function handleCancel(){
         navigate('/dashboard');
@@ -73,7 +75,7 @@ export default function EditEntry(){
     }
 
     return(
-        <div>
+        <div className='edit-entry'>
             {showMessage && (
                 <div>
                     {message}

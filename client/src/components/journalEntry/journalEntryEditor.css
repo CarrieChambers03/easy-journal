@@ -1,0 +1,173 @@
+.entry-editor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4C298A;
+}
+.entry-editor label {
+    font-size: 1.2em;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* date */
+.entry-editor .date {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    align-self: flex-start;
+    align-items: center;
+}
+.entry-editor .react-datepicker-wrapper input {
+    padding: 10px;
+    background-color: #D8A3F7;
+    color: #4C298A;
+    font-size: large;
+    border: 0.25px solid #C092D7;
+    border-radius: 10px;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+
+/* mood */
+.entry-editor .mood-selector {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    border-top: 15px solid #421F80;
+    border-left: 15px solid #421F80;
+    border-right: 15px solid #563394;
+    border-bottom: 15px solid #563394;
+}
+
+
+/*lower half*/
+.entry-editor .input-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    box-sizing: border-box;
+    flex: 1;
+    overflow:hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+/* activities */
+.entry-editor .activity-input {
+    align-self: flex-start;
+    flex: 25%;
+    height: 100%;
+}
+
+.entry-editor .activity-input .activity-list {
+    background-color: #D8A3F7;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.25);
+    height: 80%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.entry-editor .activity-input .activity-list > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+.entry-editor .activity-input .activity-list span {
+    background-color: #4C298A;
+    color: white;
+    padding: 5px;
+    border: 2px solid #4C298A;
+    border-radius: 5px;
+}
+
+/* text */
+.entry-editor .input-fields .text-input {
+    display: flex;
+    flex-direction: column;
+    flex: 75%;
+    height: 100%;
+}
+
+.entry-editor .input-fields .text-input textarea {
+    margin-bottom: 5px;
+    background-color: #D8A3F7;
+    border: 2px solid #D8A3F7;
+    border-radius: 5px;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.25);
+    padding-bottom: 15px;
+    height: 80%;
+    text-align: left;
+    vertical-align: top;
+    resize: none;
+}
+
+
+/* buttons */
+.entry-editor .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+.entry-editor .buttons .save-button {
+    background-color: #C092D7;
+    border-top: 9px solid #A06CBB;
+    border-left: 9px solid #B480CF;
+    border-bottom: 9px solid #A06CBB;
+    border-right: 9px solid #B480CF;
+    padding: 8px 20px 12px;
+    color: #4C298A;
+    font-weight: bold;
+    font-size: large;
+}
+
+.entry-editor .buttons .cancel-button {
+    background-color: #603D9E;
+    border-top: 9px solid #381576;
+    border-left: 9px solid #4C298A;
+    border-bottom: 9px solid #381576;
+    border-right: 9px solid #4C298A;
+    padding: 8px 20px 12px;
+    color: #C092D7;
+    font-weight: bold;
+    font-size: large;
+}
+
+.entry-editor .buttons .save-button:active,
+.entry-editor .buttons .cancel-button:active {
+    transform: translateY(4px);
+}
+
+/* activity list */
+.entry-editor .activity-list-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}

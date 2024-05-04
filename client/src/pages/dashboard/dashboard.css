@@ -75,3 +75,47 @@
     width: 40vw;
     background-color: white;
 }
+
+/* for narrower screens */
+
+@media (max-width: 700px){
+    .dashboard .top {
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        order: 1;
+    }
+
+    .dashboard .top .journal-entries {
+        width: 80vw;
+    }
+
+    .dashboard .switch-button {
+        order: 3;
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: center;
+        align-self: center;
+        width: 25%;
+        margin-bottom: 10px;
+    }
+
+    .dashboard .graphs {
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        order: 2;
+    }
+
+    .dashboard .graphs .mood-graph {
+        align-self: center;
+        width: 90vw;
+        margin-left: 0;
+    }
+
+    .dashboard .graphs .activity-graph {
+        align-self: center;
+        width: 90vw;
+        margin-right: 0;
+    }
+}

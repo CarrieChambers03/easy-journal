@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import JournalEntries from '../../components/journalEntry/journalEntries.jsx';
 import Navbar from '../../components/navbar.jsx';
 
+import './search.css';
+
 async function getEntriesByDate(date){
     const entriesData = await fetch('http://localhost:8000/journalEntry/getByDate', {
         method: 'POST',
@@ -75,7 +77,7 @@ export default function Search(){
     }
 
     return(
-        <div>
+        <div className='search'>
             <Navbar />
             <form onSubmit={handleSearchSubmit}>
                 <input

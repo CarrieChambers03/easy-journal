@@ -1,0 +1,11 @@
+.edit-entry {
+    background-image: url('https://assets-global.website-files.com/5a9ee6416e90d20001b20038/64c21faa4f2a2f5ac63df849_-23.png');
+    background-position: bottom;
+    height: 100vh;
+    width: 100vw;
+}
+
+.edit-entry button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}

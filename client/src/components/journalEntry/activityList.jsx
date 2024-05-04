@@ -49,21 +49,23 @@ export default function ActivityList({inputActivities, onClose}){
     }
 
     return(
-        <div>
+        <div className="activity-list-comp">
             <button onClick={() => onClose(selectedActivities)}>
                 <FontAwesomeIcon icon={faXmark} />
             </button>
-            {activitiesList.map(activity => {
-                return(
-                    <div 
-                        key={activity.id}
-                        onClick={() => handleActivityClick(activity)}
-                        className={selectedActivities.some(a => a.id === activity.id) ? 'selected' : ''}
-                    >
-                        {activity.name}
-                    </div>
-                )
-            })}
+            <div className='activity-items'>
+                {activitiesList.map(activity => {
+                    return(
+                        <div 
+                            key={activity.id}
+                            onClick={() => handleActivityClick(activity)}
+                            className={selectedActivities.some(a => a.id === activity.id) ? 'selected' : 'inactive'}
+                        >
+                            {activity.name}
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }

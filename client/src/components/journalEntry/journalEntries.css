@@ -22,13 +22,13 @@
     margin-right: 20px;
 }
 
-.journal-entries .entryBlock .textDetails {
+.journal-entries .entryBlock .text-details {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.journal-entries .entryBlock .textDetails .date {
+.journal-entries .entryBlock .text-details .date {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -36,17 +36,82 @@
     color: #603D97;
 }
 
-.journal-entries .entryBlock .textDetails .activities {
+.journal-entries .entryBlock .text-details .activities {
     display: flex;
     flex-direction: row;
     gap: 3px;
 }
 
-.journal-entries .entryBlock .textDetails .activities span {
+.journal-entries .entryBlock .text-details .activities span {
     background-color: #603D97;
     padding: 2px;
     color: white;
     border: 2px solid #603D97;
     border-radius: 5px;
     box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* search page list */
+.journal-entries-with-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.journal-entries-with-text .entryBlock {
+    display: flex;
+    flex-direction: row;
+    border: 5px solid #38156F;
+    border-bottom: 5px solid #603D97;
+    border-right: 5px solid #603D97;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: inset 5px 5px 10px 0px rgba(96, 61, 151, 0.5);
+    align-items: center;
+}
+
+.journal-entries-with-text .entryBlock img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.journal-entries-with-text .entryBlock .text-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.journal-entries-with-text .entryBlock .text-details .date {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #603D97;
+    order: 1;
+}
+
+.journal-entries-with-text .entryBlock .text-details .activities {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    order: 3;
+}
+
+.journal-entries-with-text .entryBlock .text-details .activities span {
+    background-color: #603D97;
+    padding: 2px;
+    color: white;
+    border: 2px solid #603D97;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.journal-entries-with-text .entryBlock .text-details .text {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #603D97;
+    order: 2;
 }
