@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 
 import RefreshToken from './components/refreshToken.jsx';
 import AuthProvider from './context/authContext.jsx';
-import AdminRoute from './context/adminRoute.jsx';
+// import AdminRoute from './context/adminRoute.jsx';
 
 import Register from './pages/register/register.jsx';
 import Login from './pages/login/login.jsx';
